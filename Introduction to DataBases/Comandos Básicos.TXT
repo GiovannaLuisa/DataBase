@@ -1,0 +1,36 @@
+mysql> INSERT INTO periodicos(nome_periodico, issn, id_editora) VALUES ('Special Issue 2','186795164','2');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from periodicos;
++----+-----------------+-----------+------------+
+| id | nome_periodico  | issn      | id_editora |
++----+-----------------+-----------+------------+
+|  1 | Special Issue   | 156795164 |          1 |
+|  4 | Special Issue 2 | 186795164 |          2 |
++----+-----------------+-----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT TABLES;
+ERROR 1054 (42S22): Unknown column 'TABLES' in 'field list'
+mysql> SHOW TABLES;
++------------------------+
+| Tables_in_firstexample |
++------------------------+
+| editora                |
+| periodicos             |
++------------------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from editira;
+ERROR 1146 (42S02): Table 'firstexample.editira' doesn't exist
+mysql> select *from editora;
++----+---------------------+------+
+| id | nome_editora        | pais |
++----+---------------------+------+
+|  1 | IEEE                | EUA  |
+|  2 | DataScienceMagazine | EUA  |
+|  3 | IEEE_EU             | EU   |
++----+---------------------+------+
+3 rows in set (0.00 sec)
+
+mysql>
