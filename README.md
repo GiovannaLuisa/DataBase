@@ -1,2 +1,0 @@
-# DataBase
-Basic database commands

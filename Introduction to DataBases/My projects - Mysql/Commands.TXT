@@ -1,0 +1,107 @@
+create schema if not exists company;
+create table employee(
+	Fname varchar(15) NOT NULL,
+	Minit char,
+	Lname varchar (15) NOT NULL,
+	Ssn char(9) NOT NULL,
+	Bdate DATE,
+	Address varchar(30),
+	sex char,
+	Salary decimal(10,2),
+	Super_ssn char(9),
+	Dno int NOT NULL,
+    primary key (Ssn)
+);
+
+use company;
+create table departament(
+	Dname varchar(15) not null,
+    Dnumber int not null,
+    Mgr_ssn char(9),
+    Mgr_start_date date,
+    primary key (Dnumber),
+    unique (Dname),
+    foreign key (Mgr_ssn) references employee(Ssn)
+);
+
+create table dept_locations(
+	Dnumber int not null,
+    Dlocation varchar(15) not null,
+    primary key (Dnumber, Dlocation),
+    foreign key (Dnumber) references departament (Dnumber)
+);
+
+
+
+
+Anotações
+
+Pk & sk
+
+Default(criar um valor padrão para determinado atributo)
+
+check(dominio que está sendo composto por todos os valores de um 
+determinado tipo de dados que correspondem a um atributo é verificado utilizando CHECK)
+
+Constraints
+A Primary key se cria dirante a CREATE TALBE
+
+UNIQUE (esse nome tem que unico não pode haver outro)
+ex
+Dnumber INT PRIMARY KEY,
+	Dname Varchar(15)UNIQUE,
+
+
+REFERENTIAL TRIGGERED ACTION(é o gatilho para rejeitar a partir de alguma ação)
+
+Quando há uma violação de dados que viole algumas dessas constraints o banco de dados automaticamente vai rejeitar
+
+ROW-BASED (relacionado a uma linha específica)
+
+SQL QUERIES 
+DML inserir novas informações no SQL:
+NULL & Not NULL
+
+É importante Colocar auto increment para os identificadores
+
+
+O comando GRANT pertence ao DCL data control language 
+
+A DQL data Query Language está relacionada a consulta restrita dos dados.
+Por restrita entendesse apenas leitura
+
+JOIN STATEMENT (só junta informações que tem combinação) 
+SELECT a.account_id, a.product_cd, c.fed_id,
+FROM acount a INNER JOIN custumer c
+ON a.cust_id = c cust_id 	(ON,estou dizendo que iiso é um atributo de junção)
+AND cust_type_cd='B',		(AND, aonde incide essa informação)
+
+
+Join a junção é a combinação
+o WHERE filtra
+
+pesquisar sobre CROSS JOIN
+
+NATURAL JOIN
+Junç4ao implícita
+Atributos comuns
+
+
+Dentre as vantagens de utilizar a cláusula Case podemos citar. Aglutinar duas ou mais QUERIES que estariam separadas
+No contexto de JOIN, podemos definir uma orientação para a junção estabelecida na query. 
+
+
+
+
+MODELAGEM ER
+
+PK (primary key)
+NN (a quantidade NÃO PODE SER NULA ,quando o dado n pode ficar vazio)
+UQ (ÚNICO entre todos os datos ex: identificação do cliente)
+B
+UN unique
+AI (auto incrementado)
+G
+
+
+enum(conjunto de valores) ex: ('processando','em andamento', 'entregue')
